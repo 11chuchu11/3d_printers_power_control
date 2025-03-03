@@ -15,10 +15,6 @@ void setupServer() {
     });  
     // Obtener estado de un relé
     server.on("/status/<string>", HTTP_GET, [](AsyncWebServerRequest* request) {
-        if (!isAuthorized(request)) {
-            request->send(403, "application/json", "{\"error\":\"Unauthorized\"}");
-            return;
-        }
 
         String relayName = request->pathArg(0);
 
