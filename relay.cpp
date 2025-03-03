@@ -1,9 +1,8 @@
 #include "relay.h"
 
 std::map<String, int> relays = {
-    {"rele1", 5},   // GPIO5 (D1)
-    {"rele2", 4},   // GPIO4 (D2)
-    {"rele3", 0}    // GPIO0 (D3)
+    {"chu3d", 5},   // GPIO5 (D1)
+
 };
 
 

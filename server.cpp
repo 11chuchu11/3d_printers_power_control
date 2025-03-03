@@ -10,8 +10,11 @@ bool isAuthorized(AsyncWebServerRequest* request) {
 
 // Configura el servidor con las nuevas rutas
 void setupServer() {
+    server.on("/",HTTP_GET, [](AsyncWebServerRequest* request){
+      request->send(200, "application/json", "{\"server_status\":\"ok\"}");
+    });  
     // Obtener estado de un relé
-    server.on("^/status/([a-zA-Z0-9]+)$", HTTP_GET, [](AsyncWebServerRequest* request) {
+    server.on("/status/<string>", HTTP_GET, [](AsyncWebServerRequest* request) {
         if (!isAuthorized(request)) {
             request->send(403, "application/json", "{\"error\":\"Unauthorized\"}");
             return;
