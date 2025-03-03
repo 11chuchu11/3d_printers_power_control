@@ -14,7 +14,9 @@ void setupServer() {
       request->send(200, "application/json", "{\"server_status\":\"ok\"}");
     });  
     // Obtener estado de un relé
-    server.on("/status/<string>", HTTP_GET, [](AsyncWebServerRequest* request) {
+    server.on("/status/<str>", HTTP_GET, [](AsyncWebServerRequest* request) {
+
+      serial.println("GET: /status");
 
         String relayName = request->pathArg(0);
 
